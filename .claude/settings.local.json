@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://127.0.0.1:8088/)",
+      "PowerShell(Get-Command *)",
+      "PowerShell(cd \"C:\\\\Users\\\\81802\\\\project\"; Start-Process -FilePath \"python.exe\" -ArgumentList \"-m\",\"http.server\",\"8088\" -WorkingDirectory \"C:\\\\Users\\\\81802\\\\project\" -WindowStyle Hidden; Start-Sleep -Seconds 1; \\(Invoke-WebRequest -Uri \"http://127.0.0.1:8088/\" -UseBasicParsing\\).StatusCode)",
+      "Bash(python.exe -c \"import openpyxl; print\\('openpyxl ok'\\)\")",
+      "Bash(python.exe -c \"import docx; print\\('python-docx ok'\\)\")",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri \"https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js\" -UseBasicParsing -TimeoutSec 10; Write-Output \"OK $\\($r.StatusCode\\) $\\($r.RawContentLength\\)\" } catch { Write-Output \"FAIL: $\\($_.Exception.Message\\)\" })",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(node gen.mjs)",
+      "Skill(run)",
+      "Bash(command -v chromium-cli)",
+      "Bash(chromium-cli --help)",
+      "Bash(npm ls *)",
+      "Bash(npx --yes playwright --version)",
+      "Bash(npx playwright *)",
+      "Bash(node test.mjs)",
+      "Bash(node -e ' *)",
+      "Bash(node test_mobile.mjs)",
+      "Bash(du -sh .testfiles)",
+      "Bash(rm -rf .testfiles)"
+    ]
+  }
+}

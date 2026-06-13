@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ファイルビューア集 - ブラウザで動くファイル閲覧ツール</title>
+<meta name="description" content="Excel・CSV・JSON・Word・ZIPファイルをブラウザだけで閲覧できる無料ツール集。ファイルはサーバーに送信されず、すべてローカルで処理されます。">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">📁 ファイルビューア集</a>
+    <nav class="tool-nav">
+      <a href="/excel/">Excel</a>
+      <a href="/csv/">CSV</a>
+      <a href="/json/">JSON</a>
+      <a href="/word/">Word</a>
+      <a href="/zip/">ZIP</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <h1>ブラウザだけで動くファイルビューア集</h1>
+    <p>
+      Excel・CSV・JSON・Word・ZIPファイルを、インストールや会員登録なしでその場で閲覧できます。
+      すべての処理はお使いのブラウザ内で行われ、ファイルはどこにもアップロードされません。
+    </p>
+  </section>
+
+  <div class="tool-grid">
+
+    <a class="tool-card" href="/excel/">
+      <div class="tool-icon">📊</div>
+      <h2>Excel ビューア</h2>
+      <p>シートを切り替えながら、表形式でセル内容を確認できます。</p>
+      <div class="tool-ext">.xlsx / .xls / .xlsm / .csv</div>
+    </a>
+
+    <a class="tool-card" href="/csv/">
+      <div class="tool-icon">📋</div>
+      <h2>CSV ビューア</h2>
+      <p>区切り文字・文字エンコーディングを指定して表形式で表示します。</p>
+      <div class="tool-ext">.csv / .tsv / .txt</div>
+    </a>
+
+    <a class="tool-card" href="/json/">
+      <div class="tool-icon">🧩</div>
+      <h2>JSON ビューア</h2>
+      <p>整形表示とツリー表示で、入れ子になったデータを見やすく確認できます。</p>
+      <div class="tool-ext">.json</div>
+    </a>
+
+    <a class="tool-card" href="/word/">
+      <div class="tool-icon">📄</div>
+      <h2>Word ビューア</h2>
+      <p>Word文書(.docx)をHTMLに変換し、見た目に近い形で表示します。</p>
+      <div class="tool-ext">.docx</div>
+    </a>
+
+    <a class="tool-card" href="/zip/">
+      <div class="tool-icon">🗜️</div>
+      <h2>ZIP ビューア</h2>
+      <p>ZIP内のファイル一覧を表示し、テキストファイルの内容を確認・取り出しできます。</p>
+      <div class="tool-ext">.zip</div>
+    </a>
+
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <strong>🔒 サーバー不要・送信なし</strong>
+      ファイルは外部サーバーへ送信されず、すべてブラウザ内（JavaScript）で処理されます。
+    </div>
+    <div class="feature">
+      <strong>🖱️ ドラッグ&ドロップ対応</strong>
+      各ツールのページにファイルをドラッグ&ドロップ、またはクリックして選択できます。
+    </div>
+    <div class="feature">
+      <strong>📱 スマホ対応</strong>
+      スマートフォン・タブレットでも利用できるレスポンシブデザインです。
+    </div>
+    <div class="feature">
+      <strong>🚫 画像ビューアは非対応</strong>
+      画像ファイル（jpg, png, gif など）の表示には対応していません。文書・ZIP内の画像も表示されません。
+    </div>
+  </div>
+
+  <div class="notice">
+    <strong>ご利用にあたって</strong>
+    <ul>
+      <li>すべての処理はブラウザのメモリ上で行われます。表示後にページを閉じればデータは破棄されます。</li>
+      <li>大きなファイルを開くと、表示までに時間がかかったり、ブラウザの動作が重くなる場合があります。</li>
+      <li>古い形式のファイル（.doc, .xls など）は一部のみ対応、または非対応の場合があります。各ツールページの説明をご確認ください。</li>
+      <li>画像ファイル単体の閲覧、および文書・ZIP内に含まれる画像の表示には対応していません。</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p>ファイルビューア集 &mdash; すべての処理はブラウザ内で完結します（サーバー送信なし）</p>
+  <p>Excel: SheetJS / CSV: PapaParse / Word: mammoth.js / ZIP: JSZip &amp; marked.js</p>
+</footer>
+
+</body>
+</html>

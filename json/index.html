@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSON ビューア | ファイルビューア集</title>
+<meta name="description" content="JSONファイルをブラウザで整形表示・ツリー表示できるツール。折りたたみ表示や検索に対応。">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">📁 ファイルビューア集</a>
+    <nav class="tool-nav">
+      <a href="/excel/">Excel</a>
+      <a href="/csv/">CSV</a>
+      <a href="/json/" class="active">JSON</a>
+      <a href="/word/">Word</a>
+      <a href="/zip/">ZIP</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-title">🧩 JSON ビューア</h1>
+  <p class="page-desc">
+    JSONファイルをブラウザに読み込み、折りたたみ可能なツリー表示、または整形済みテキストで表示します。
+  </p>
+
+  <div class="notice">
+    <ul>
+      <li>ファイルはサーバーに送信されず、ブラウザ内のみで処理されます。</li>
+      <li>非常に大きなJSONファイルは、表示までに時間がかかったりブラウザの動作が重くなる場合があります。</li>
+    </ul>
+  </div>
+
+  <div class="dropzone" id="dropzone" tabindex="0">
+    <div class="dz-icon">🧩</div>
+    <div class="dz-main">ここにJSONファイルをドラッグ&amp;ドロップ</div>
+    <div class="dz-sub">またはクリックしてファイルを選択（.json）</div>
+    <input type="file" id="fileInput" accept=".json,application/json">
+  </div>
+
+  <details style="margin-bottom:1.4rem;">
+    <summary style="cursor:pointer; font-size:0.92rem; color:var(--color-text-muted);">テキストを直接貼り付けて表示する</summary>
+    <div style="margin-top:0.6rem; display:flex; flex-direction:column; gap:0.5rem;">
+      <textarea id="pasteArea" rows="6" style="width:100%; font-family:Consolas,monospace; font-size:0.85rem; padding:0.6rem; border:1px solid var(--color-border); border-radius:6px;" placeholder='{"例": "ここにJSONテキストを貼り付けてください"}'></textarea>
+      <button class="btn btn-primary btn-sm" id="loadPasteBtn" style="align-self:flex-start;">このテキストを表示</button>
+    </div>
+  </details>
+
+  <div id="errorBox" class="error-box hidden"></div>
+
+  <div id="resultArea" class="hidden">
+    <div class="file-info" id="fileInfo"></div>
+
+    <div class="toolbar">
+      <label><input type="radio" name="viewMode" value="tree" id="modeTree" checked> ツリー表示</label>
+      <label><input type="radio" name="viewMode" value="raw" id="modeRaw"> 整形テキスト表示</label>
+      <div class="spacer"></div>
+      <button class="btn btn-sm" id="resetBtn">クリア</button>
+    </div>
+
+    <div class="toolbar" id="treeToolbar">
+      <input type="search" id="searchInput" placeholder="キー・値を検索">
+      <button class="btn btn-sm" id="expandAllBtn">すべて展開</button>
+      <button class="btn btn-sm" id="collapseAllBtn">すべて折りたたむ</button>
+      <div class="spacer"></div>
+      <button class="btn btn-sm" id="copyBtn">整形済みJSONをコピー</button>
+    </div>
+
+    <div class="json-view json-tree" id="jsonTree"></div>
+    <pre class="json-raw hidden" id="jsonRaw"></pre>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>ファイルビューア集 &mdash; すべての処理はブラウザ内で完結します（サーバー送信なし）</p>
+</footer>
+
+<script src="/assets/js/common.js"></script>
+<script src="/assets/js/json.js"></script>
+</body>
+</html>

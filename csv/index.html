@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSV ビューア | ファイルビューア集</title>
+<meta name="description" content="CSV/TSVファイルをブラウザだけで表形式表示するツール。文字エンコーディング(UTF-8/Shift-JIS)や区切り文字を指定できます。">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">📁 ファイルビューア集</a>
+    <nav class="tool-nav">
+      <a href="/excel/">Excel</a>
+      <a href="/csv/" class="active">CSV</a>
+      <a href="/json/">JSON</a>
+      <a href="/word/">Word</a>
+      <a href="/zip/">ZIP</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-title">📋 CSV ビューア</h1>
+  <p class="page-desc">
+    CSV / TSV / テキストファイルをブラウザに読み込み、表形式で表示します。文字エンコーディングや区切り文字を指定できます。
+  </p>
+
+  <div class="notice">
+    <ul>
+      <li>ファイルはサーバーに送信されず、ブラウザ内のみで処理されます。</li>
+      <li>日本語のCSVファイルが文字化けする場合は、文字エンコーディングを「Shift-JIS」に切り替えて再読込してください。</li>
+      <li>非常に大きなファイルは表示までに時間がかかったり、ブラウザの動作が重くなる場合があります。</li>
+    </ul>
+  </div>
+
+  <div class="dropzone" id="dropzone" tabindex="0">
+    <div class="dz-icon">📋</div>
+    <div class="dz-main">ここにCSV/TSVファイルをドラッグ&amp;ドロップ</div>
+    <div class="dz-sub">またはクリックしてファイルを選択（.csv / .tsv / .txt）</div>
+    <input type="file" id="fileInput" accept=".csv,.tsv,.txt">
+  </div>
+
+  <div id="errorBox" class="error-box hidden"></div>
+
+  <div id="resultArea" class="hidden">
+    <div class="file-info" id="fileInfo"></div>
+
+    <div class="toolbar">
+      <label>
+        文字エンコーディング:
+        <select id="encodingSelect">
+          <option value="utf-8">UTF-8</option>
+          <option value="shift-jis">Shift-JIS（日本語環境）</option>
+        </select>
+      </label>
+      <label>
+        区切り文字:
+        <select id="delimiterSelect">
+          <option value="">自動判定</option>
+          <option value=",">カンマ ( , )</option>
+          <option value="\t">タブ</option>
+          <option value=";">セミコロン ( ; )</option>
+          <option value="|">パイプ ( | )</option>
+        </select>
+      </label>
+      <label><input type="checkbox" id="headerToggle" checked> 1行目をヘッダーとして使用</label>
+    </div>
+
+    <div class="toolbar">
+      <label style="flex:1 1 240px;">
+        絞り込み:
+        <input type="search" id="filterInput" placeholder="表内のテキストで絞り込み" style="flex:1; min-width:120px;">
+      </label>
+      <div class="spacer"></div>
+      <button class="btn btn-sm" id="resetBtn">別のファイルを開く</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table" id="dataTable"></table>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>ファイルビューア集 &mdash; すべての処理はブラウザ内で完結します（サーバー送信なし）</p>
+  <p>Powered by <a href="https://www.papaparse.com/" target="_blank" rel="noopener">PapaParse</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="/assets/js/common.js"></script>
+<script src="/assets/js/csv.js"></script>
+</body>
+</html>

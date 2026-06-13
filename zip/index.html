@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZIP ビューア | ファイルビューア集</title>
+<meta name="description" content="ZIPファイルの内容をブラウザで一覧表示し、テキストファイルの内容確認や個別ファイルの取り出しができるツール。">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">📁 ファイルビューア集</a>
+    <nav class="tool-nav">
+      <a href="/excel/">Excel</a>
+      <a href="/csv/">CSV</a>
+      <a href="/json/">JSON</a>
+      <a href="/word/">Word</a>
+      <a href="/zip/" class="active">ZIP</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-title">🗜️ ZIP ビューア</h1>
+  <p class="page-desc">
+    ZIPファイルの中身をフォルダ構造で一覧表示します。テキスト系ファイルはその場で内容を確認、各ファイルは個別に取り出し（ダウンロード）できます。
+  </p>
+
+  <div class="notice">
+    <ul>
+      <li>ファイルはサーバーに送信されず、ブラウザ内のみで処理されます。</li>
+      <li>テキスト・JSON・Markdownなどはプレビュー可能です。Markdownは整形表示にも切り替えられます。</li>
+      <li><strong>画像ファイル・その他のバイナリファイルはプレビューに対応していません。</strong>「取り出す」ボタンでダウンロードしてご確認ください。</li>
+      <li>パスワード付きZIP、暗号化ZIPには対応していません。</li>
+    </ul>
+  </div>
+
+  <div class="dropzone" id="dropzone" tabindex="0">
+    <div class="dz-icon">🗜️</div>
+    <div class="dz-main">ここにZIPファイルをドラッグ&amp;ドロップ</div>
+    <div class="dz-sub">またはクリックしてファイルを選択（.zip）</div>
+    <input type="file" id="fileInput" accept=".zip,application/zip">
+  </div>
+
+  <div id="errorBox" class="error-box hidden"></div>
+
+  <div id="resultArea" class="hidden">
+    <div class="file-info" id="fileInfo"></div>
+
+    <div class="toolbar">
+      <input type="search" id="searchInput" placeholder="ファイル名で絞り込み" style="flex:1; min-width:160px;">
+      <div class="spacer"></div>
+      <button class="btn btn-sm" id="resetBtn">別のファイルを開く</button>
+    </div>
+
+    <div class="zip-layout">
+      <div class="zip-tree" id="zipTree"></div>
+      <div class="zip-preview" id="zipPreview">
+        <div class="placeholder">ファイルを選択するとここに内容が表示されます</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>ファイルビューア集 &mdash; すべての処理はブラウザ内で完結します（サーバー送信なし）</p>
+  <p>Powered by <a href="https://stuk.github.io/jszip/" target="_blank" rel="noopener">JSZip</a> &amp; <a href="https://marked.js.org/" target="_blank" rel="noopener">marked.js</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+<script src="/assets/js/common.js"></script>
+<script src="/assets/js/zip.js"></script>
+</body>
+</html>

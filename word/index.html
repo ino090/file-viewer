@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word ビューア | ファイルビューア集</title>
+<meta name="description" content="Word文書(.docx)をブラウザでHTMLに変換して閲覧できるツール。サーバーに送信せず、ローカルで処理します。">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">📁 ファイルビューア集</a>
+    <nav class="tool-nav">
+      <a href="/excel/">Excel</a>
+      <a href="/csv/">CSV</a>
+      <a href="/json/">JSON</a>
+      <a href="/word/" class="active">Word</a>
+      <a href="/zip/">ZIP</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-title">📄 Word ビューア</h1>
+  <p class="page-desc">
+    Word文書(.docx)をブラウザに読み込み、HTMLに変換して文書に近いレイアウトで表示します。
+  </p>
+
+  <div class="notice">
+    <ul>
+      <li>ファイルはサーバーに送信されず、ブラウザ内のみで処理されます。</li>
+      <li>対応形式は <strong>.docx</strong>（Word 2007以降）のみです。古い形式の <strong>.doc</strong> ファイルは対応していません。</li>
+      <li>文書内に含まれる<strong>画像は表示されません</strong>（プレースホルダーとして表示されます）。</li>
+      <li>ヘッダー/フッター、図形、複雑なレイアウトなど、一部の要素は再現されない場合があります。見出し・段落・表・リスト・文字装飾などが中心に表示されます。</li>
+    </ul>
+  </div>
+
+  <div class="dropzone" id="dropzone" tabindex="0">
+    <div class="dz-icon">📄</div>
+    <div class="dz-main">ここにWordファイル(.docx)をドラッグ&amp;ドロップ</div>
+    <div class="dz-sub">またはクリックしてファイルを選択（.docx のみ）</div>
+    <input type="file" id="fileInput" accept=".docx">
+  </div>
+
+  <div id="errorBox" class="error-box hidden"></div>
+  <div id="warningBox" class="notice warning hidden"></div>
+
+  <div id="resultArea" class="hidden">
+    <div class="file-info" id="fileInfo"></div>
+
+    <div class="toolbar">
+      <label><input type="radio" name="viewMode" value="doc" id="modeDoc" checked> 文書表示</label>
+      <label><input type="radio" name="viewMode" value="html" id="modeHtml"> HTMLソース表示</label>
+      <div class="spacer"></div>
+      <button class="btn btn-sm" id="resetBtn">別のファイルを開く</button>
+    </div>
+
+    <div class="docx-view" id="docView"></div>
+    <pre class="json-raw hidden" id="htmlSource"></pre>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>ファイルビューア集 &mdash; すべての処理はブラウザ内で完結します（サーバー送信なし）</p>
+  <p>Powered by <a href="https://github.com/mwilliamson/mammoth.js" target="_blank" rel="noopener">mammoth.js</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/mammoth@1.7.0/mammoth.browser.min.js"></script>
+<script src="/assets/js/common.js"></script>
+<script src="/assets/js/word.js"></script>
+</body>
+</html>
