@@ -230,6 +230,12 @@ main {
   font-size: 0.82rem;
 }
 
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -563,6 +569,51 @@ pre.json-raw {
   padding: 2.5rem 1rem;
 }
 
+/* ---------- PDF viewer ---------- */
+
+.pdf-canvas-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  overflow: auto;
+  max-height: 75vh;
+}
+
+.pdf-canvas-wrap canvas {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.12);
+}
+
+.pdf-page-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.pdf-page-indicator input[type="number"] {
+  width: 3.6rem;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+#zoomLevel {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  min-width: 3.2rem;
+  text-align: center;
+}
+
 /* ---------- Home page ---------- */
 
 .hero {
@@ -692,5 +743,8 @@ pre.json-raw {
   }
   .docx-view {
     padding: 1rem;
+  }
+  .pdf-canvas-wrap {
+    padding: 0.6rem;
   }
 }

@@ -21,7 +21,15 @@
       "Bash(node -e ' *)",
       "Bash(node test_mobile.mjs)",
       "Bash(du -sh .testfiles)",
-      "Bash(rm -rf .testfiles)"
+      "Bash(rm -rf .testfiles)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8088/)",
+      "PowerShell(Start-Process -FilePath \"C:\\\\Users\\\\81802\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310\\\\python.exe\" -ArgumentList \"-m\",\"http.server\",\"8088\" -WorkingDirectory \"C:\\\\Users\\\\81802\\\\project\" -WindowStyle Hidden; Start-Sleep -Milliseconds 800; \\(Invoke-WebRequest -Uri \"http://127.0.0.1:8088/\" -UseBasicParsing\\).StatusCode)",
+      "Bash(npx --version)",
+      "Bash(node *)",
+      "Read(//c/c/Users/81802/**)",
+      "PowerShell(Get-Process *)",
+      "PowerShell(Stop-Process *)",
+      "PowerShell(Remove-Item *)"
     ]
   }
 }

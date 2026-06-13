@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF ビューア | ファイルビューア集</title>
+<meta name="description" content="PDFファイルをブラウザだけで閲覧できるツール。サーバーに送信せず、ローカルでページ送り・ズーム表示します。">
+<link rel="stylesheet" href="/assets/css/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VKG7DSZ51W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VKG7DSZ51W');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">📁 ファイルビューア集</a>
+    <nav class="tool-nav">
+      <a href="/excel/">Excel</a>
+      <a href="/csv/">CSV</a>
+      <a href="/json/">JSON</a>
+      <a href="/word/">Word</a>
+      <a href="/pdf/" class="active">PDF</a>
+      <a href="/zip/">ZIP</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-title">📕 PDF ビューア</h1>
+  <p class="page-desc">
+    PDFファイルをブラウザに読み込み、ページを切り替えながら表示します。拡大・縮小表示にも対応しています。
+  </p>
+
+  <div class="notice">
+    <ul>
+      <li>ファイルはサーバーに送信されず、ブラウザ内のみで処理されます。</li>
+      <li>パスワード付き・暗号化されたPDFは表示できない場合があります。</li>
+      <li>ページ数が多い、または容量の大きいファイルは表示・ページ切り替えに時間がかかる場合があります。</li>
+    </ul>
+  </div>
+
+  <div class="dropzone" id="dropzone" tabindex="0">
+    <div class="dz-icon">📕</div>
+    <div class="dz-main">ここにPDFファイルをドラッグ&amp;ドロップ</div>
+    <div class="dz-sub">またはクリックしてファイルを選択（.pdf）</div>
+    <input type="file" id="fileInput" accept=".pdf,application/pdf">
+  </div>
+
+  <div id="errorBox" class="error-box hidden"></div>
+
+  <div id="resultArea" class="hidden">
+    <div class="file-info" id="fileInfo"></div>
+
+    <div class="toolbar">
+      <button class="btn btn-sm" id="prevBtn">◀ 前へ</button>
+      <span class="pdf-page-indicator">
+        <input type="number" id="pageInput" min="1" value="1" inputmode="numeric"> / <span id="pageCount">-</span> ページ
+      </span>
+      <button class="btn btn-sm" id="nextBtn">次へ ▶</button>
+      <div class="spacer"></div>
+      <button class="btn btn-sm" id="zoomOutBtn">－</button>
+      <span id="zoomLevel">100%</span>
+      <button class="btn btn-sm" id="zoomInBtn">＋</button>
+      <button class="btn btn-sm" id="resetBtn">別のファイルを開く</button>
+    </div>
+
+    <div class="pdf-canvas-wrap">
+      <canvas id="pdfCanvas"></canvas>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>ファイルビューア集 &mdash; すべての処理はブラウザ内で完結します（サーバー送信なし）</p>
+  <p>Powered by <a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">PDF.js</a></p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="/assets/js/common.js"></script>
+<script src="/assets/js/pdf.js"></script>
+</body>
+</html>
